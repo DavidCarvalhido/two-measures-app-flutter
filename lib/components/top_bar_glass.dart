@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class TopBarGlass extends StatefulWidget {
-  Color color;
-  double height;
-  double blurStrengthX;
-  double blurStrengthY;
-  Widget title;
-  Widget leading;
-  List<Widget> actions;
+  final Color color;
+  final double height;
+  final double blurStrengthX;
+  final double blurStrengthY;
+  final Widget title;
+  final Widget leading;
+  final List<Widget> actions;
 
   TopBarGlass({
     this.color,
