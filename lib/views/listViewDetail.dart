@@ -4,6 +4,7 @@ import 'package:two_measures/views/temperature.dart';
 import 'package:two_measures/views/volume.dart';
 import 'package:two_measures/views/weight.dart';
 import 'energy.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:two_measures/components/button_style.dart';
 
 class ListViewDetails extends StatelessWidget {
@@ -15,11 +16,14 @@ class ListViewDetails extends StatelessWidget {
         children: [
           ElevatedButton.icon(
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => Energy()),
               );
             },
-            label: Text('Energy'),
+            label: Text(
+              AppLocalizations.of(context).textEnergy,
+            ),
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,
@@ -39,11 +43,14 @@ class ListViewDetails extends StatelessWidget {
               color: Colors.white, // this way change the icon color
             ),
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => Length()),
               );
             },
-            label: Text('Length'),
+            label: Text(
+              AppLocalizations.of(context).textLength,
+            ),
           ),
           ElevatedButton.icon(
             icon: Icon(
@@ -52,11 +59,14 @@ class ListViewDetails extends StatelessWidget {
               color: Colors.white, // this way change the icon color
             ),
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => Temperature()),
               );
             },
-            label: Text('Temperature'),
+            label: Text(
+              AppLocalizations.of(context).textTemperature,
+            ),
           ),
           ElevatedButton.icon(
             icon: Icon(
@@ -65,11 +75,14 @@ class ListViewDetails extends StatelessWidget {
               color: Colors.white, // this way change the icon color
             ),
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => Volume()),
               );
             },
-            label: Text('Volume'),
+            label: Text(
+              AppLocalizations.of(context).textVolume,
+            ),
           ),
           ElevatedButton.icon(
             icon: Icon(
@@ -78,11 +91,14 @@ class ListViewDetails extends StatelessWidget {
               color: Colors.white, // this way change the icon color
             ),
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => Weight()),
               );
             },
-            label: Text('Weight'),
+            label: Text(
+              AppLocalizations.of(context).textWeight,
+            ),
           ),
         ],
       ),

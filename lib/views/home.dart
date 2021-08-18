@@ -86,7 +86,7 @@ class _MyHomePageState extends State<Home> {
             blurStrengthY: 20,
             color: Colors.green.withAlpha(60),
             title: Text(
-              'Frosted Nav Bar',
+              '2Measures',
               style: TextStyle(
                 height: 3,
                 fontSize: 20,

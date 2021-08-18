@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_measures/components/top_bar_glass.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Weight extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class Weight extends StatelessWidget {
             blurStrengthY: 20,
             color: Colors.green.withAlpha(60),
             title: Text(
-              'Weight',
+              AppLocalizations.of(context).textWeight,
               style: TextStyle(
                 height: 3,
                 fontSize: 20,
