@@ -6,8 +6,8 @@ import 'package:two_measures/views/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  /*SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);*/
+  //Maybe later I could give permissions for landscape...
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 

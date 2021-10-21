@@ -8,13 +8,18 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:two_measures/components/button_style.dart';
 
 class ListViewDetails extends StatelessWidget {
+  static const spc = SizedBox(height: 20);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 100, left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 150, left: 10, right: 10),
       child: Column(
         children: [
           ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+            ),
             onPressed: () {
               Navigator.push(
                 context,
@@ -30,13 +35,11 @@ class ListViewDetails extends StatelessWidget {
               color: Colors.white, // this way change the icon color
             ),
           ),
-          /*const SizedBox(
-            height: 10,
-          ),*/
+          spc,
           ElevatedButton.icon(
-            /*style: ElevatedButton.styleFrom(
-              minimumSize: Size(300, 50),
-            ),*/
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+            ),
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,
@@ -52,7 +55,11 @@ class ListViewDetails extends StatelessWidget {
               AppLocalizations.of(context).textLength,
             ),
           ),
+          spc,
           ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+            ),
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,
@@ -68,7 +75,11 @@ class ListViewDetails extends StatelessWidget {
               AppLocalizations.of(context).textTemperature,
             ),
           ),
+          spc,
           ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+            ),
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,
@@ -84,7 +95,11 @@ class ListViewDetails extends StatelessWidget {
               AppLocalizations.of(context).textVolume,
             ),
           ),
+          spc,
           ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+            ),
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,

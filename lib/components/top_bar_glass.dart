@@ -40,13 +40,14 @@ class _TopBarGlassState extends State<TopBarGlass> {
             color: Colors.green.withAlpha(60),
             alignment: Alignment.center,
             width: scrSize.width,
-            height: widget.height ?? 80,
+            height: widget.height ?? 100, //80
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
                   margin: EdgeInsets.only(right: 15),
-                  width: 36, //aqui altera a posição inicial do titulo na nav bar
+                  width:
+                      36, //aqui altera a posição inicial do titulo na nav bar
                   color: Colors.transparent,
                   child: widget.leading,
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//import 'package:two_measures/views/energy.dart';
 import 'package:two_measures/views/length.dart';
 import 'package:two_measures/views/listViewDetail.dart';
 import 'package:two_measures/views/temperature.dart';
@@ -84,21 +83,21 @@ class _MyHomePageState extends State<Home> {
           TopBarGlass(
             blurStrengthX: 20,
             blurStrengthY: 20,
-            color: Colors.green.withAlpha(60),
+            color: Colors.blue.withAlpha(60),    //acho que não é necessário esta parte aqui...
             title: Text(
               '2Measures',
               style: TextStyle(
-                height: 3,
+                height: 5,
                 fontSize: 20,
                 color: Colors.white,
               ),
             ),
           ),
-          GestureDetector(
+          /*GestureDetector(
             onTap: () {
               FocusScope.of(context).requestFocus(new FocusNode());
             },
-          ),
+          ),*/
           Column(
             children: [
               Stack(
