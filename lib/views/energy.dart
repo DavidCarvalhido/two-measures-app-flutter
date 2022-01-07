@@ -35,7 +35,9 @@ class Energy extends StatelessWidget {
                       onPressed: () {},
                       label: Text('change'),
                       icon: Icon(
-                        Icons.arrow_forward_ios,
+                        Icons.autorenew,
+                        //input--dropdown menu (unid)
+                        //label--dropdown menu (unid)
                         size: 32,
                         color: Colors.white, // this way change the icon color
                       ),
