@@ -1,5 +1,4 @@
 import 'package:quick_actions/quick_actions.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShortcutItems {
   static final items = <ShortcutItem>[

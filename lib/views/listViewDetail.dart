@@ -27,7 +27,7 @@ class ListViewDetails extends StatelessWidget {
               );
             },
             label: Text(
-              AppLocalizations.of(context).textEnergy,
+              AppLocalizations.of(context)!.textEnergy,
             ),
             icon: Icon(
               Icons.arrow_forward_ios,
@@ -52,7 +52,7 @@ class ListViewDetails extends StatelessWidget {
               );
             },
             label: Text(
-              AppLocalizations.of(context).textLength,
+              AppLocalizations.of(context)!.textLength,
             ),
           ),
           spc,
@@ -72,7 +72,7 @@ class ListViewDetails extends StatelessWidget {
               );
             },
             label: Text(
-              AppLocalizations.of(context).textTemperature,
+              AppLocalizations.of(context)!.textTemperature,
             ),
           ),
           spc,
@@ -92,7 +92,7 @@ class ListViewDetails extends StatelessWidget {
               );
             },
             label: Text(
-              AppLocalizations.of(context).textVolume,
+              AppLocalizations.of(context)!.textVolume,
             ),
           ),
           spc,
@@ -112,7 +112,7 @@ class ListViewDetails extends StatelessWidget {
               );
             },
             label: Text(
-              AppLocalizations.of(context).textWeight,
+              AppLocalizations.of(context)!.textWeight,
             ),
           ),
         ],
