@@ -16,20 +16,51 @@ class _VolumeState extends State<Volume> {
   static const spc = SizedBox(height: 20);
   final _textController = TextEditingController();
 
+  BannerAd? _anchoredAdaptiveAd;
+  bool _isLoaded = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _myBanner.load();
+    _loadBanner();
   }
 
-  final BannerAd _myBanner = BannerAd(
-    adUnitId: Platform.isAndroid
-        ? 'ca-app-pub-3940256099942544/6300978111'
-        : 'ca-app-pub-3940256099942544/2934735716',
-    size: AdSize.banner,
-    request: AdRequest(),
-    listener: BannerAdListener(),
-  );
+  Future<void> _loadBanner() async {
+    // Get an AnchoredAdaptiveBannerAdSize before loading the ad.
+    final AnchoredAdaptiveBannerAdSize? size =
+        await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+            MediaQuery.of(context).size.width.truncate());
+
+    if (size == null) {
+      print('Unable to get height of anchored banner.');
+      return;
+    }
+
+    _anchoredAdaptiveAd = BannerAd(
+      // TODO: replace these test ad units with your own ad unit.
+      adUnitId: Platform.isAndroid
+          ? 'ca-app-pub-3940256099942544/6300978111'
+          : 'ca-app-pub-3940256099942544/2934735716',
+      size: size,
+      request: AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          print('$ad loaded: ${ad.responseInfo}');
+          setState(() {
+            // When the ad is loaded, get the ad size and use it to set
+            // the height of the ad container.
+            _anchoredAdaptiveAd = ad as BannerAd;
+            _isLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('Anchored adaptive banner failedToLoad: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    return _anchoredAdaptiveAd!.load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,25 +73,30 @@ class _VolumeState extends State<Volume> {
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: 100,
+                  top: 160,
                   left: 10,
                   right: 10,
                 ),
                 child: Column(
                   children: [
+                    //spc,
                     TextField(
                       controller: _textController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         suffixIcon: IconButton(
-                            onPressed: () {
-                              _textController.clear();
-                            },
-                            icon: const Icon(Icons.clear)),
+                          onPressed: () {
+                            _textController.clear();
+                          },
+                          icon: const Icon(Icons.clear),
+                        ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20, //mas nao é isto que eu quero...
                         ),
-                        hintText: '0',
+                        hintText: '0.00',
                       ),
                       keyboardType: TextInputType.number,
                     ),
@@ -72,7 +108,7 @@ class _VolumeState extends State<Volume> {
                       onPressed: () {},
                       label: Text('change'),
                       icon: Icon(
-                        Icons.arrow_forward_ios,
+                        Icons.autorenew,
                         size: 32,
                         color: Colors.white, // this way change the icon color
                       ),
@@ -102,18 +138,26 @@ class _VolumeState extends State<Volume> {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0.0,
-            child: Container(
-              width: _myBanner.size.width.toDouble(),
-              height: _myBanner.size.height.toDouble(),
-              child: AdWidget(
-                ad: _myBanner,
+          if (_anchoredAdaptiveAd != null && _isLoaded)
+            Positioned(
+              bottom: 0.0,
+              child: Container(
+                color: Colors.transparent,
+                width: _anchoredAdaptiveAd!.size.width.toDouble(),
+                height: _anchoredAdaptiveAd!.size.height.toDouble(),
+                child: AdWidget(
+                  ad: _anchoredAdaptiveAd!,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _anchoredAdaptiveAd?.dispose();
   }
 }

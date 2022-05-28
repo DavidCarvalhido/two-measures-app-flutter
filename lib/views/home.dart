@@ -24,21 +24,21 @@ class _MyHomePageState extends State<Home> {
   final _quickActions = QuickActions();
   String shortcut = "no actions set";
 
-  final BannerAd _myBanner = BannerAd(
+  /*final BannerAd _myBanner = BannerAd(
     adUnitId: Platform.isAndroid
         ? 'ca-app-pub-3940256099942544/6300978111'
         : 'ca-app-pub-3940256099942544~2934735716',
     size: AdSize.banner,
     request: AdRequest(),
     listener: BannerAdListener(),
-  );
+  );*/
 
   @override
   void initState() {
     super.initState();
     initQuickActions();
     // Load ads...
-    _myBanner.load();
+    //_myBanner.load();
   }
 
   void initQuickActions() {
@@ -121,7 +121,7 @@ class _MyHomePageState extends State<Home> {
               ),
             ],
           ),
-          Positioned(
+          /*Positioned(
             bottom: 0.0,
             child: Container(
               width: _myBanner.size.width.toDouble(),
@@ -130,7 +130,7 @@ class _MyHomePageState extends State<Home> {
                 ad: _myBanner,
               ),
             ),
-          ),
+          ),*/
         ],
       ),
     );
