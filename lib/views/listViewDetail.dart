@@ -5,7 +5,7 @@ import 'package:two_measures/views/volume.dart';
 import 'package:two_measures/views/weight.dart';
 import 'energy.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:two_measures/components/button_style.dart';
+import 'package:two_measures/components/button_style.dart';
 
 class ListViewDetails extends StatelessWidget {
   static const spc = SizedBox(height: 20);
@@ -32,7 +32,7 @@ class ListViewDetails extends StatelessWidget {
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 32,
-              color: Colors.white, // this way change the icon color
+              color: Colors.white, //this way change the icon color
             ),
           ),
           spc,

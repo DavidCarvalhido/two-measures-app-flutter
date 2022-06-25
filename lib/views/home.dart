@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:io';
-
 import 'package:two_measures/views/length.dart';
 import 'package:two_measures/views/listViewDetail.dart';
 import 'package:two_measures/views/temperature.dart';
 import 'package:two_measures/views/volume.dart';
 import 'package:two_measures/views/weight.dart';
-
 import 'package:quick_actions/quick_actions.dart';
 import 'package:two_measures/components/shortcuts.dart';
 import 'package:two_measures/components/top_bar_glass.dart';

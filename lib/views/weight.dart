@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:io';
-
 import 'package:two_measures/components/top_bar_glass.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -14,7 +13,11 @@ class Weight extends StatefulWidget {
 
 class _WeightState extends State<Weight> {
   static const spc = SizedBox(height: 20);
+  static const hozt = SizedBox(width: 4);
   final _textController = TextEditingController();
+  final _dropDownValue1 = ValueNotifier('');
+  final _dropDownValue2 = ValueNotifier('');
+  final _items = ['KM', 'HM', 'DAM', 'M', 'DM', 'CM', 'MM'];
 
   BannerAd? _anchoredAdaptiveAd;
   bool _isLoaded = false;
@@ -78,27 +81,68 @@ class _WeightState extends State<Weight> {
                   right: 10,
                 ),
                 child: Column(
+                  //spc,
                   children: [
-                    //spc,
-                    TextField(
-                      controller: _textController,
-                      decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: TextField(
+                            controller: _textController,
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  _textController.clear();
+                                },
+                                icon: const Icon(Icons.clear),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 22.5,
+                                horizontal: 20.0, //mas nao é isto que eu quero...
+                              ),
+                              hintText: '0.00',
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            _textController.clear();
+                        hozt,
+                        // -- This is for the dropdown menu because it uses ValueNotifier
+                        ValueListenableBuilder(
+                          valueListenable: _dropDownValue1,
+                          builder: (BuildContext context, String value, _) {
+                            return SizedBox(
+                              width:111,  //depois alterar o tamanho
+                              child: DropdownButtonFormField<String>(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                //isExpanded: true,
+                                hint: const Text('measure'),
+                                value: (value.isEmpty) ? null : value,
+                                onChanged: (itemChoice) =>
+                                _dropDownValue1.value = itemChoice.toString(),
+                                items: _items.map(
+                                      (op) => DropdownMenuItem(
+                                    value: op,
+                                    child: Text(op),
+                                  ),
+                                ).toList(),
+                              ),
+                            );
                           },
-                          icon: const Icon(Icons.clear),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20, //mas nao é isto que eu quero...
-                        ),
-                        hintText: '0.00',
-                      ),
-                      keyboardType: TextInputType.number,
+                      ],
                     ),
                     spc,
                     ElevatedButton.icon(
@@ -110,15 +154,71 @@ class _WeightState extends State<Weight> {
                       icon: Icon(
                         Icons.autorenew,
                         size: 32,
-                        color: Colors.white, // this way change the icon color
+                        color: Colors.white, //this way change the icon color
                       ),
                     ),
                     spc,
-                    Text(
-                      '0.00',
-                      style: TextStyle(
-                        fontSize: 40,
-                      ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: TextField(
+                            //enabled: false,
+                            controller: _textController,
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  _textController.clear();
+                                },
+                                icon: const Icon(Icons.clear),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 22.5,
+                                horizontal: 20.0, //mas nao é isto que eu quero...
+                              ),
+                              hintText: '0.00',
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                        hozt,
+                        // -- This is for the dropdown menu because it uses ValueNotifier
+                        ValueListenableBuilder(
+                          valueListenable: _dropDownValue2,
+                          builder: (BuildContext context, String value, _) {
+                            return SizedBox(
+                              width:111,  //depois alterar o tamanho
+                              child: DropdownButtonFormField<String>(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                //isExpanded: true,
+                                hint: const Text('measure'),
+                                value: (value.isEmpty) ? null : value,
+                                onChanged: (itemChoice) =>
+                                _dropDownValue2.value = itemChoice.toString(),
+                                items: _items.map(
+                                      (op) => DropdownMenuItem(
+                                        value: op,
+                                        child: Text(op),
+                                      ),
+                                ).toList(),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 ),

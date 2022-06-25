@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
         AppLocalizations.delegate,
       ],
       supportedLocales: [
+        Locale('ch', ''), // Chinese, no country code
         Locale('de', ''), // German, no country code
         Locale('en', ''), // English, no country code
         Locale('es', ''), // Spanish, no country code
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         Locale('hi', ''), // Hindi, no country code
         Locale('it', ''), // Italian, no country code
         Locale('pt', ''), // Portuguese, no country code
+        Locale('ru', ''), // Russian, no country code
       ],
       home: Home(),
       //MyHomePage(title: 'Flutter Demo Home Page'),
