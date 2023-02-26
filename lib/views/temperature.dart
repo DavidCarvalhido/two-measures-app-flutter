@@ -14,10 +14,16 @@ class Temperature extends StatefulWidget {
 class _TemperatureState extends State<Temperature> {
   static const spc = SizedBox(height: 20);
   static const hozt = SizedBox(width: 4);
-  final _textController = TextEditingController();
+  static const defaultTemperatureValue = 1.0;
+  final _textControllerValue1 =
+      TextEditingController(text: defaultTemperatureValue.toString());
+  final _textControllerValue2 = TextEditingController();
+  double _temperatureValue = defaultTemperatureValue;
   final _dropDownValue1 = ValueNotifier('');
   final _dropDownValue2 = ValueNotifier('');
   final _items = ['Fº', 'Cº', 'K'];
+
+  _getTemperatureConversion() => _temperatureValue + 1;
 
   BannerAd? _anchoredAdaptiveAd;
   bool _isLoaded = false;
@@ -87,7 +93,7 @@ class _TemperatureState extends State<Temperature> {
                       children: <Widget>[
                         Expanded(
                           child: TextField(
-                            controller: _textController,
+                            controller: _textControllerValue1,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
@@ -98,13 +104,14 @@ class _TemperatureState extends State<Temperature> {
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
-                                  _textController.clear();
+                                  _textControllerValue1.clear();
                                 },
                                 icon: const Icon(Icons.clear),
                               ),
                               contentPadding: const EdgeInsets.symmetric(
                                 vertical: 22.5,
-                                horizontal: 20.0, //mas nao é isto que eu quero...
+                                horizontal:
+                                    20.0, //mas nao é isto que eu quero...
                               ),
                               hintText: '0.00',
                             ),
@@ -117,7 +124,7 @@ class _TemperatureState extends State<Temperature> {
                           valueListenable: _dropDownValue1,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -130,14 +137,16 @@ class _TemperatureState extends State<Temperature> {
                                 //isExpanded: true,
                                 hint: const Text('measure'),
                                 value: (value.isEmpty) ? null : value,
-                                onChanged: (itemChoice) =>
-                                _dropDownValue1.value = itemChoice.toString(),
-                                items: _items.map(
+                                onChanged: (itemChoice) => _dropDownValue1
+                                    .value = itemChoice.toString(),
+                                items: _items
+                                    .map(
                                       (op) => DropdownMenuItem(
-                                    value: op,
-                                    child: Text(op),
-                                  ),
-                                ).toList(),
+                                        value: op,
+                                        child: Text(op),
+                                      ),
+                                    )
+                                    .toList(),
                               ),
                             );
                           },
@@ -163,7 +172,7 @@ class _TemperatureState extends State<Temperature> {
                         Expanded(
                           child: TextField(
                             //enabled: false,
-                            controller: _textController,
+                            controller: _textControllerValue2,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
@@ -174,13 +183,14 @@ class _TemperatureState extends State<Temperature> {
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
-                                  _textController.clear();
+                                  _textControllerValue2.clear();
                                 },
                                 icon: const Icon(Icons.clear),
                               ),
                               contentPadding: const EdgeInsets.symmetric(
                                 vertical: 22.5,
-                                horizontal: 20.0, //mas nao é isto que eu quero...
+                                horizontal:
+                                    20.0, //mas nao é isto que eu quero...
                               ),
                               hintText: '0.00',
                             ),
@@ -193,7 +203,7 @@ class _TemperatureState extends State<Temperature> {
                           valueListenable: _dropDownValue2,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -206,8 +216,7 @@ class _TemperatureState extends State<Temperature> {
                                 //isExpanded: true,
                                 hint: const Text('measure'),
                                 value: (value.isEmpty) ? null : value,
-                                onChanged: (itemChoice) =>
-                                _dropDownValue2.value = itemChoice.toString(),
+                                onChanged: (itemChoice) => _dropDownValue2.value = itemChoice.toString(),
                                 items: _items.map(
                                       (op) => DropdownMenuItem(
                                         value: op,
@@ -220,6 +229,63 @@ class _TemperatureState extends State<Temperature> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 100),
+                    Table(
+                      border: TableBorder.all(),
+                      columnWidths: const <int, TableColumnWidth>{
+                        0: IntrinsicColumnWidth(),
+                        1: FlexColumnWidth(),
+                        2: FixedColumnWidth(50),
+                      },
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
+                      children: <TableRow>[
+                        TableRow(
+                          children: <Widget>[
+                            Container(
+                              height: 32,
+                              color: Colors.green,
+                            ),
+                            TableCell(
+                              verticalAlignment: TableCellVerticalAlignment.top,
+                              child: Container(
+                                height: 32,
+                                width: 32,
+                                color: Colors.red,
+                              ),
+                            ),
+                            Container(
+                              height: 64,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          decoration: const BoxDecoration(
+                            color: Colors.grey,
+                          ),
+                          children: <Widget>[
+                            Container(
+                              height: 64,
+                              width: 128,
+                              color: Colors.purple,
+                            ),
+                            Container(
+                              height: 32,
+                              color: Colors.yellow,
+                            ),
+                            Center(
+                              child: Container(
+                                height: 32,
+                                width: 32,
+                                color: Colors.orange,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 100),
                   ],
                 ),
               ),
@@ -255,9 +321,22 @@ class _TemperatureState extends State<Temperature> {
     );
   }
 
+  //@override
+  void initstate() {
+    super.initState();
+    _textControllerValue1.addListener(_onTemperatureValueChanged);
+  }
+
+  _onTemperatureValueChanged() {
+    setState(() {
+      _temperatureValue = double.tryParse(_textControllerValue1.text) ?? 0.0;
+    });
+  }
+
   @override
   void dispose() {
     super.dispose();
     _anchoredAdaptiveAd?.dispose();
+    _textControllerValue1.dispose();
   }
 }
