@@ -84,10 +84,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_mobile_ads
-      sha256: "7a39fe63007764115395550fc3eaf0d469de685298208040138c373d5444ab48"
+      sha256: "010b7a7a81b5c8f760eb2e5add8eaa7e429b4982dc8c8e465b709611f52887be"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "2.4.0"
   intl:
     dependency: "direct main"
     description:
@@ -164,18 +164,18 @@ packages:
     dependency: transitive
     description:
       name: quick_actions_android
-      sha256: c61eb90b2b3a633f61145ecf8311ad87ac8493aea1cd0c44602eec312036171b
+      sha256: da0981160b59bf03ff912303d955e90545d6d12010149385127455e08c8b59b1
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   quick_actions_ios:
     dependency: transitive
     description:
       name: quick_actions_ios
-      sha256: "800dd5a1e0365d87e7b9b1b6e2f323f83578420a27e5f4b65527861a6786931c"
+      sha256: "20b9a3f41fc9ea7a7cad41abff2e79d2bce90555fc216e4e68d98fb260a2c776"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   quick_actions_platform_interface:
     dependency: transitive
     description:

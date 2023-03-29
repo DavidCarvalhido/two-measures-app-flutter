@@ -40,13 +40,12 @@ class _TopBarGlassState extends State<TopBarGlass> {
             color: Colors.green.withAlpha(60),
             alignment: Alignment.center,
             width: scrSize.width,
-            height: widget.height ?? 120,
+            height: widget.height ?? 85,
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  margin: EdgeInsets.only(right: 15),
-                  //width: 36,
+                  margin: EdgeInsets.only(left: 20, top: 20),
                   color: Colors.transparent,
                   child: widget.leading,
                 ),

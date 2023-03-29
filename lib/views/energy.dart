@@ -234,10 +234,16 @@ class _EnergyState extends State<Energy> {
             blurStrengthX: 20,
             blurStrengthY: 20,
             color: Colors.green.withAlpha(60),
+            leading: GestureDetector(
+              child: Icon(Icons.arrow_back_ios),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
             title: Text(
               AppLocalizations.of(context)!.textEnergy,
               style: TextStyle(
-                height: 5,
+                height: 3,
                 fontSize: 20,
                 color: Colors.white,
               ),
