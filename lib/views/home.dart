@@ -94,12 +94,11 @@ class _MyHomePageState extends State<Home> {
           TopBarGlass(
             blurStrengthX: 20,
             blurStrengthY: 20,
-            color: Colors.blue
-                .withAlpha(60), //acho que não é necessário esta parte aqui...
+            color: Colors.blue.withAlpha(60), //acho que não é necessário esta parte aqui...
             title: Text(
               '2Measures',
               style: TextStyle(
-                height: 5,
+                height: 3,
                 fontSize: 20,
                 color: Colors.white,
               ),
