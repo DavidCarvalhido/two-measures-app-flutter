@@ -33,7 +33,7 @@ dependencies:
   # Internationalization support
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl: ^0.18.0
   quick_actions: ^1.0.0
 
   google_mobile_ads: ^2.0.1

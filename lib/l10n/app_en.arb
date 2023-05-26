@@ -1,22 +1,22 @@
 {
-     "textEnergy": "Energy",
-     "@textEnergy": {
-         "description": "The greeting shown to the Flutter Engage attendees"
-     },
-     "textLength": "Length",
-     "@textLength": {
-         "description": "The greeting shown to the Flutter Engage attendees"
-     },
-     "textTemperature": "Temperature",
-     "@textTemperature": {
-         "description": "The greeting shown to the Flutter Engage attendees"
-     },
-     "textVolume": "Volume",
-     "@textVolume": {
-         "description": "The greeting shown to the Flutter Engage attendees"
-     },
-     "textWeight": "Weight",
-     "@textWeight": {
-         "description": "The greeting shown to the Flutter Engage attendees"
-     }
- }
+    "textEnergy": "Energy",
+    "@textEnergy": {
+        "description": "The greeting shown to the Flutter Engage attendees"
+    },
+    "textLength": "Length",
+    "@textLength": {
+        "description": "The greeting shown to the Flutter Engage attendees"
+    },
+    "textTemperature": "Temperature",
+    "@textTemperature": {
+        "description": "The greeting shown to the Flutter Engage attendees"
+    },
+    "textVolume": "Volume",
+    "@textVolume": {
+        "description": "The greeting shown to the Flutter Engage attendees"
+    },
+    "textWeight": "Weight",
+    "@textWeight": {
+        "description": "The greeting shown to the Flutter Engage attendees"
+    }
+}

@@ -86,30 +86,30 @@ class _LengthState extends State<Length> {
                     Row(
                       children: <Widget>[
                         Expanded(
-                            child: TextField(
-                              controller: _textController,
-                              decoration: InputDecoration(
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    bottomLeft: Radius.circular(10),
-                                  ),
+                          child: TextField(
+                            controller: _textController,
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
                                 ),
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    _textController.clear();
-                                  },
-                                  icon: const Icon(Icons.clear),
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 22.5,
-                                  horizontal: 20.0, //mas nao é isto que eu quero...
-                                ),
-                                hintText: '0.00',
                               ),
-                              keyboardType: TextInputType.number,
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  _textController.clear();
+                                },
+                                icon: const Icon(Icons.clear),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 22.5,
+                                horizontal: 20.0, //mas nao é isto que eu quero...
+                              ),
+                              hintText: '0.00',
                             ),
+                            keyboardType: TextInputType.number,
+                          ),
                         ),
                         hozt,
                         // -- This is for the dropdown menu because it uses ValueNotifier
@@ -117,7 +117,7 @@ class _LengthState extends State<Length> {
                           valueListenable: _dropDownValue1,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -194,7 +194,7 @@ class _LengthState extends State<Length> {
                           valueListenable: _dropDownValue2,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -211,9 +211,9 @@ class _LengthState extends State<Length> {
                                 _dropDownValue2.value = itemChoice.toString(),
                                 items: _items.map(
                                       (op) => DropdownMenuItem(
-                                    value: op,
-                                    child: Text(op),
-                                  ),
+                                        value: op,
+                                        child: Text(op),
+                                      ),
                                 ).toList(),
                               ),
                             );

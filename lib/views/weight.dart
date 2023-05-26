@@ -117,7 +117,7 @@ class _WeightState extends State<Weight> {
                           valueListenable: _dropDownValue1,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -134,9 +134,9 @@ class _WeightState extends State<Weight> {
                                 _dropDownValue1.value = itemChoice.toString(),
                                 items: _items.map(
                                       (op) => DropdownMenuItem(
-                                    value: op,
-                                    child: Text(op),
-                                  ),
+                                        value: op,
+                                        child: Text(op),
+                                      ),
                                 ).toList(),
                               ),
                             );
@@ -193,7 +193,7 @@ class _WeightState extends State<Weight> {
                           valueListenable: _dropDownValue2,
                           builder: (BuildContext context, String value, _) {
                             return SizedBox(
-                              width:111,  //depois alterar o tamanho
+                              width: 111, //depois alterar o tamanho
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
